@@ -42,11 +42,11 @@ var oReq = new XMLHttpRequest();
 oReq.open('GET', urlpath, true);
 oReq.responseType = 'blob';
 
-oReq.onload = function(oEvent) {
+oReq.onload = function (oEvent) {
   var blob = oReq.response;
   reader_url = new FileReader();
 
-  reader_url.onload = function(e) {
+  reader_url.onload = function (e) {
     reader = new netcdfjs(this.result);
   };
 
@@ -76,13 +76,13 @@ function handleFileSelect(evt) {
   reader = new FileReader();
   reader.onerror = errorHandler;
   reader.onprogress = updateProgress;
-  reader.onabort = function(e) {
+  reader.onabort = function (e) {
     alert('File read cancelled');
   };
-  reader.onloadstart = function(e) {
+  reader.onloadstart = function (e) {
     document.getElementById('progress_bar').className = 'loading';
   };
-  reader.onload = function(e) {
+  reader.onload = function (e) {
     // Ensure that the progress bar displays 100% at the end.
     progress.style.width = '100%';
     progress.textContent = '100%';

@@ -16,11 +16,11 @@ function nonRecord(buffer, variable) {
   const type = types.str2num(variable.type);
 
   // size of the data
-  var size = variable.size / types.num2bytes(type);
+  let size = variable.size / types.num2bytes(type);
 
   // iterates over the data
-  var data = new Array(size);
-  for (var i = 0; i < size; i++) {
+  let data = new Array(size);
+  for (let i = 0; i < size; i++) {
     data[i] = types.readType(buffer, type, 1);
   }
 
@@ -42,14 +42,14 @@ function record(buffer, variable, recordDimension) {
 
   // size of the data
   // TODO streaming data
-  var size = recordDimension.length;
+  let size = recordDimension.length;
 
   // iterates over the data
-  var data = new Array(size);
+  let data = new Array(size);
   const step = recordDimension.recordStep;
 
-  for (var i = 0; i < size; i++) {
-    var currentOffset = buffer.offset;
+  for (let i = 0; i < size; i++) {
+    let currentOffset = buffer.offset;
     data[i] = types.readType(buffer, type, width);
     buffer.seek(currentOffset + step);
   }

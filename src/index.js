@@ -2,10 +2,10 @@
 
 const { IOBuffer } = require('iobuffer');
 
-const utils = require('./utils');
 const data = require('./data');
 const readHeader = require('./header');
 const toString = require('./toString');
+const utils = require('./utils');
 
 /**
  * Reads a NetCDF v3.x file
@@ -78,7 +78,7 @@ class NetCDFReader {
    */
   getAttribute(attributeName) {
     const attribute = this.globalAttributes.find(
-      (val) => val.name === attributeName
+      (val) => val.name === attributeName,
     );
     if (attribute) return attribute.value;
     return null;
@@ -132,7 +132,7 @@ class NetCDFReader {
     // throws if variable not found
     utils.notNetcdf(
       variable === undefined,
-      `variable not found: ${variableName}`
+      `variable not found: ${variableName}`,
     );
 
     // go to the offset position
@@ -166,7 +166,7 @@ class NetCDFReader {
    */
   attributeExists(attributeName) {
     const attribute = this.globalAttributes.find(
-      (val) => val.name === attributeName
+      (val) => val.name === attributeName,
     );
     return attribute !== undefined;
   }
