@@ -1,8 +1,8 @@
 # netcdfjs
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![build status][ci-image]][ci-url]
 [![npm download][download-image]][download-url]
 
 Read and explore NetCDF v3 files.
@@ -154,9 +154,9 @@ function updateProgress(evt) {
 
 [npm-image]: https://img.shields.io/npm/v/netcdfjs.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/netcdfjs
-[travis-image]: https://img.shields.io/travis/cheminfo/netcdfjs/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/cheminfo/netcdfjs
-[coveralls-image]: https://img.shields.io/coveralls/cheminfo/netcdfjs.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/github/cheminfo/netcdfjs
+[ci-image]: https://github.com/cheminfo/netcdfjs/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-url]: https://github.com/cheminfo/netcdfjs/actions?query=workflow%3A%22Node.js+CI%22
+[codecov-image]: https://img.shields.io/codecov/c/github/cheminfo/netcdfjs.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/cheminfo/netcdfjs
 [download-image]: https://img.shields.io/npm/dm/netcdfjs.svg?style=flat-square
 [download-url]: https://www.npmjs.com/package/netcdfjs
