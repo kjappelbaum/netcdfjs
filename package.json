@@ -11,6 +11,16 @@
   "files": [
     "src"
   ],
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all"
+  },
   "author": "Miguel Asencio <maasencioh@gmail.com> (https://github.com/maasencioh)",
   "repository": "cheminfo/netcdfjs",
   "bugs": {
@@ -28,14 +38,15 @@
     "build": "cheminfo build"
   },
   "devDependencies": {
-    "cheminfo-tools": "^1.23.2",
-    "eslint": "^5.16.0",
-    "eslint-config-cheminfo": "^1.20.1",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jest": "^22.6.4",
-    "jest": "^24.8.0"
+    "cheminfo-build": "^1.1.9",
+    "eslint": "^7.21.0",
+    "eslint-config-cheminfo": "^5.2.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
   },
   "dependencies": {
-    "iobuffer": "^4.0.1"
+    "iobuffer": "^5.0.3"
   }
 }

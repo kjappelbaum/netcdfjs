@@ -18,11 +18,10 @@ function notNetcdf(statement, reason) {
  * @param {IOBuffer} buffer - Buffer for the file data
  */
 function padding(buffer) {
-  if ((buffer.offset % 4) !== 0) {
+  if (buffer.offset % 4 !== 0) {
     buffer.skip(4 - (buffer.offset % 4));
   }
 }
-
 
 /**
  * Reads the name
@@ -32,8 +31,8 @@ function padding(buffer) {
  */
 function readName(buffer) {
   // Read name
-  var nameLength = buffer.readUint32();
-  var name = buffer.readChars(nameLength);
+  let nameLength = buffer.readUint32();
+  let name = buffer.readChars(nameLength);
 
   // validate name
   // TODO

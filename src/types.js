@@ -8,7 +8,7 @@ const types = {
   SHORT: 3,
   INT: 4,
   FLOAT: 5,
-  DOUBLE: 6
+  DOUBLE: 6,
 };
 
 /**
@@ -31,7 +31,7 @@ function num2str(type) {
       return 'float';
     case types.DOUBLE:
       return 'double';
-      /* istanbul ignore next */
+    /* istanbul ignore next */
     default:
       return 'undefined';
   }
@@ -57,7 +57,7 @@ function num2bytes(type) {
       return 4;
     case types.DOUBLE:
       return 8;
-      /* istanbul ignore next */
+    /* istanbul ignore next */
     default:
       return -1;
   }
@@ -83,7 +83,7 @@ function str2num(type) {
       return types.FLOAT;
     case 'double':
       return types.DOUBLE;
-      /* istanbul ignore next */
+    /* istanbul ignore next */
     default:
       return -1;
   }
@@ -98,8 +98,8 @@ function str2num(type) {
  */
 function readNumber(size, bufferReader) {
   if (size !== 1) {
-    var numbers = new Array(size);
-    for (var i = 0; i < size; i++) {
+    let numbers = new Array(size);
+    for (let i = 0; i < size; i++) {
       numbers[i] = bufferReader();
     }
     return numbers;
@@ -130,7 +130,7 @@ function readType(buffer, type, size) {
       return readNumber(size, buffer.readFloat32.bind(buffer));
     case types.DOUBLE:
       return readNumber(size, buffer.readFloat64.bind(buffer));
-      /* istanbul ignore next */
+    /* istanbul ignore next */
     default:
       notNetcdf(true, `non valid type ${type}`);
       return undefined;
