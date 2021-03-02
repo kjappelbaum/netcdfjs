@@ -59,7 +59,7 @@ const NC_UNLIMITED = 0;
  *  * `recordName`: name of the dimension that has unlimited size
  */
 function dimensionsList(buffer) {
-  let recordId, recordName;
+  let recordId, recordName, dimensions;
   const dimList = buffer.readUint32();
   if (dimList === ZERO) {
     utils.notNetcdf(
@@ -75,7 +75,7 @@ function dimensionsList(buffer) {
 
     // Length of dimensions
     const dimensionSize = buffer.readUint32();
-    var dimensions = new Array(dimensionSize);
+    dimensions = new Array(dimensionSize);
     for (let dim = 0; dim < dimensionSize; dim++) {
       // Read name
       let name = utils.readName(buffer);
@@ -111,6 +111,7 @@ function dimensionsList(buffer) {
  *  * `value`: A number or string with the value of the attribute
  */
 function attributesList(buffer) {
+  let attributes;
   const gAttList = buffer.readUint32();
   if (gAttList === ZERO) {
     utils.notNetcdf(
@@ -126,7 +127,7 @@ function attributesList(buffer) {
 
     // Length of attributes
     const attributeSize = buffer.readUint32();
-    var attributes = new Array(attributeSize);
+    attributes = new Array(attributeSize);
     for (let gAtt = 0; gAtt < attributeSize; gAtt++) {
       // Read name
       let name = utils.readName(buffer);
@@ -172,6 +173,7 @@ function attributesList(buffer) {
 function variablesList(buffer, recordId, version) {
   const varList = buffer.readUint32();
   let recordStep = 0;
+  let variables;
   if (varList === ZERO) {
     utils.notNetcdf(
       buffer.readUint32() !== ZERO,
@@ -183,7 +185,7 @@ function variablesList(buffer, recordId, version) {
 
     // Length of variables
     const variableSize = buffer.readUint32();
-    var variables = new Array(variableSize);
+    variables = new Array(variableSize);
     for (let v = 0; v < variableSize; v++) {
       // Read name
       let name = utils.readName(buffer);
